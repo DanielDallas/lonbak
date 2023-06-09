@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import UserLogin from './components/UserLogin';
+import CreateAccount from './components/CreateAccount';
+import Dashboard from './components/Dashboard';
+import AddLoans from './components/AddLoans';
+import LoanList from './components/LoanList';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={UserLogin} />
+        <Route path="/create-account" component={CreateAccount} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/add-loan" component={AddLoans} />
+        <Route path="/loan-list" component={LoanLists} />
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
